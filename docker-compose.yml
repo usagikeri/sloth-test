@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+      image: mas9612/sloth-env:dev
+      volumes: 
+        - $PWD/sloth-src:/home
+      tty: true
+      stdin_open: true
+      networks:
+        sloth-net:
+      ports:
+        - "8081:8080"
+      restart: always
+  database:
+      build: sloth-mysql/.
+      environment:
+        - MYSQL_USER=sloth
+        - MYSQL_PASSWORD=sloth
+        - MYSQL_DATABASE=test
+        - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      ports:
+        - "3306:3306"
+      volumes:
+        - $PWD/database:/var/lib/mysql
+      networks:
+        sloth-net:
+      restart: always
+networks:
+  sloth-net:
+
