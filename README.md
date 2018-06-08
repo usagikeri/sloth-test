@@ -27,6 +27,6 @@ root@4adfafd:/home# python init_tables.py create
 $ docker-compose exec database /bin/bash
 root@4adfafd:/home# mysql -u sloth -p
 mysql > パスワードはsloth
-mysql > use library;
+mysql > use test;
 mysql > show tables;
 ```
