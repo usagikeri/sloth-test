@@ -81,11 +81,24 @@ class Sessions_Ctrl:
     def select(self):
         return session.query(Sessions.id, Sessions.user_id, Sessions.session_id, Sessions.expiration_date).all()[:]
 
-
-class Thesis():
-    def __int__(self):
+class Thesis_Ctrl:
+    def __init__(self):
         pass
 
+    def insert(self, identifier, title):
+        thesis = Thesis()
+        thesis.idetifier = identifier
+        thesis.title = title
+        session.add(thesis)
+        session.commit()
+
+    def delete(self, id_):
+        thesis = session.query(Thesis).filter(Thesis.id == id_).first()
+        session.delete(thesis)
+        session.commit()
+
+    def select(self):
+        return session.query(Thesis.id, Thesis.identifier, Thesis.title).all()[:]
 
 if __name__ == "__main__":
     print("DB Control Class．")
