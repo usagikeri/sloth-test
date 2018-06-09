@@ -2,8 +2,8 @@ from sqlalchemy import *
 from sqlalchemy.orm import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Float, DateTime
-from setting_env import Base
-from setting_env import ENGINE
+from setting_test import Base
+from setting_test import ENGINE
 from sqlalchemy.dialects import mysql
 import sys
 

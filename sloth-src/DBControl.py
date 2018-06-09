@@ -1,4 +1,4 @@
-from setting_env import session
+from setting_test import session
 from init_tables import Books, Users, Lending, Sessions
 
 class Books_Ctrl:
@@ -69,7 +69,7 @@ class Sessions_Ctrl:
         sessions = Sessions()
         sessions.user_id = user_id 
         sessions.session_id = session_id 
-        sessions.expiration_id = expirarion_id
+        sessions.expiration_id = expiration_id
         session.add(session)
         session.commit()
 
@@ -82,7 +82,7 @@ class Sessions_Ctrl:
         return session.query(Sessions.id, Sessions.user_id, Sessions.session_id, Sessions.expiration_date).all()[:]
 
 
-class Thesis(self):
+class Thesis():
     def __int__(self):
         pass
 
