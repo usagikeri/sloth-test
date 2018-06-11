@@ -20,6 +20,12 @@ class Books(Base):
     title = Column('title', String(100), nullable=False)
     place = Column('place', String(1), nullable=False)
 
+class Thesis(Base):
+    __tablename__ = 'Thesis'
+    id = Column('id', Integer, primary_key = True, autoincrement=True)
+    thesis_id = Column('thesis_id', String(64), nullable=False)
+    title = Column('title', String(150), nullable=False)
+
 class Lending(Base):
     __tablename__ = 'Lending' 
     id = Column('id', Integer, primary_key = True, autoincrement=True)
@@ -42,11 +48,6 @@ class Sessions(Base):
 
     user_id_relation = relationship('Users')
 
-class Thesis(Base):
-    __tablename__ = 'Thesis'
-    id = Column('id', Integer, primary_key = True, autoincrement=True)
-    identifier = Column('identifier', String(12), nullable=False)
-    title = Column('title', String(150), nullable=False)
 
 def main(args):
     if len(args) > 1 and args[1] == 'create':

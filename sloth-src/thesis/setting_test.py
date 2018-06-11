@@ -6,7 +6,7 @@ db_config = {'user_name':'sloth',
 	     'password':'sloth',
 	     'host':'database',
 	     'port':'3306',
-	     'db_name':'test'}
+	     'db_name':'thesis'}
 
 # mysqlのDBの設定
 DATABASE = 'mysql://{0}:{1}@{2}:{3}/{4}?charset=utf8'.format(

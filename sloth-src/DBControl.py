@@ -1,5 +1,6 @@
 from setting_test import session
-from init_tables import Books, Users, Lending, Sessions
+from init_tables import Books, Users, Thesis, Lending, Sessions
+
 
 class Books_Ctrl:
     def __int__(self):
@@ -12,6 +13,8 @@ class Books_Ctrl:
         book.title = title
         book.place = place
         session.add(book)
+
+        session.flush()
         session.commit()
 
     def delete(self, id_):
@@ -31,6 +34,8 @@ class Users_Ctrl:
         user.k_number = k_number 
         user.name = name 
         session.add(user)  
+
+        session.flush()
         session.commit()
 
     def delete(self, id_):
@@ -51,6 +56,8 @@ class Lending_Ctrl:
         lending.book_id = book_id 
         lending.date = date
         session.add(lending)  
+
+        session.flush()
         session.commit()
 
     def delete(self, id_):
@@ -71,6 +78,8 @@ class Sessions_Ctrl:
         sessions.session_id = session_id 
         sessions.expiration_id = expiration_id
         session.add(session)
+
+        session.flush()
         session.commit()
 
     def delete(self, id_):
@@ -85,11 +94,13 @@ class Thesis_Ctrl:
     def __init__(self):
         pass
 
-    def insert(self, identifier, title):
+    def insert(self, thesis_id, title):
         thesis = Thesis()
-        thesis.idetifier = identifier
+        thesis.thesis_id = thesis_id
         thesis.title = title
         session.add(thesis)
+
+        session.flush()
         session.commit()
 
     def delete(self, id_):
